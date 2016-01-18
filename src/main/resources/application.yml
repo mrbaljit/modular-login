@@ -1,0 +1,7 @@
+security:
+  user:
+    name: abc
+    password: password
+logging:
+  level:
+    org.springframework.security: DEBUG
