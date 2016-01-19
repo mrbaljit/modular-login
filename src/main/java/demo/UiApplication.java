@@ -2,9 +2,7 @@ package demo;
 
 import java.io.IOException;
 import java.security.Principal;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -13,10 +11,14 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import demo.domain.User;
+import demo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.CollectionFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -34,6 +36,9 @@ import org.springframework.web.util.WebUtils;
 @Controller
 public class UiApplication {
 
+    @Autowired
+	UserService userService;
+
 	// Match everything without a suffix (so not a static resource)
 	@RequestMapping(value = "/{[path:[^\\.]*}")
 	public String redirect() {
@@ -44,6 +49,13 @@ public class UiApplication {
 	@RequestMapping("/user")
 	@ResponseBody
 	public Principal user(Principal user) {
+		System.out.println(userService.getAllUsers().size());
+		Optional<User> user1 = userService.getUserByEmail("rm");
+		System.out.println(user1.get().getEmail());
+		System.out.println(user1.get().getId());
+		System.out.println(user1.get().getRole());
+		System.out.println(user1.get().getPasswordHash());
+		System.out.println(">>>>>>>>>>>>>>>>>");
 		return user;
 	}
 
