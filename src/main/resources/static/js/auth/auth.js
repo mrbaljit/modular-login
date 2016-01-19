@@ -23,6 +23,8 @@ angular.module('auth', []).factory(
 
 				authenticate : function(credentials, callback) {
 
+
+					console.log(credentials, " credentials");
 					var headers = credentials && credentials.username ? {
 						authorization : "Basic "
 								+ btoa(credentials.username + ":"
@@ -32,6 +34,7 @@ angular.module('auth', []).factory(
 					$http.get('user', {
 						headers : headers
 					}).success(function(data) {
+						console.log(data, " data");
 						if (data.name) {
 							auth.authenticated = true;
 						} else {
