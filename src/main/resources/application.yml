@@ -5,3 +5,16 @@ security:
 logging:
   level:
     org.springframework.security: DEBUG
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    database: POSTGRESQL
+
+  datasource:
+    username: postgres
+    password: admin
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/springboot

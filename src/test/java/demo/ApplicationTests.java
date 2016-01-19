@@ -48,7 +48,7 @@ public class ApplicationTests {
 
 	@Test
 	public void loginSucceeds() {
-		RestTemplate template = new TestRestTemplate("user", "password");
+		RestTemplate template = new TestRestTemplate("abc", "password");
 		ResponseEntity<String> response = template.getForEntity("http://localhost:" + port
 				+ "/user", String.class);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
