@@ -50,7 +50,7 @@ public class UiApplication {
 	@ResponseBody
 	public Principal user(Principal user) {
 		System.out.println(userService.getAllUsers().size());
-		Optional<User> user1 = userService.getUserByEmail("rm");
+		Optional<User> user1 = userService.getUserByEmail("demo@localhost");
 		System.out.println(user1.get().getEmail());
 		System.out.println(user1.get().getId());
 		System.out.println(user1.get().getRole());

@@ -63,7 +63,7 @@
 		<java.version>1.8</java.version>
 	</properties>
 
-<!--	<build>
+	<build>
 		<resources>
 			<resource>
 				<directory>${project.basedir}/src/main/resources</directory>
@@ -81,8 +81,8 @@
 				<artifactId>maven-resources-plugin</artifactId>
 				<executions>
 					<execution>
-						&lt;!&ndash; Serves *only* to filter the wro.xml so it can get an absolute
-							path for the project &ndash;&gt;
+						<!-- Serves *only* to filter the wro.xml so it can get an absolute
+							path for the project -->
 						<id>copy-resources</id>
 						<phase>validate</phase>
 						<goals>
@@ -139,6 +139,6 @@
 				</dependencies>
 			</plugin>
 		</plugins>
-	</build>-->
+	</build>
 
 </project>

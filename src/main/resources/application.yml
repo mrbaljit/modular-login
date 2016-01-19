@@ -17,4 +17,7 @@ spring:
     username: postgres
     password: admin
     platform: postgres
-    url: jdbc:postgresql://localhost:5432/springboot
+    url: jdbc:postgresql://localhost:5432/springbootdb
+
+server:
+  port: 4111
